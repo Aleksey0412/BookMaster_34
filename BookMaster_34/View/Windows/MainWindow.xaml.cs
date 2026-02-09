@@ -33,6 +33,7 @@ namespace BookMaster_34
 
         private void CloseAppMi_Click(object sender, RoutedEventArgs e)
         {
+            Close();
 
         }
 
