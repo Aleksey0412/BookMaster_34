@@ -24,7 +24,8 @@ namespace BookMaster_34
 
         private void LogoutMi_Click(object sender, RoutedEventArgs e)
         {
-
+           LogoutWindow logoutWindow = new LogoutWindow();
+            logoutWindow.ShowDialog();
         }
 
         private void LoginMi_Click(object sender, RoutedEventArgs e)
