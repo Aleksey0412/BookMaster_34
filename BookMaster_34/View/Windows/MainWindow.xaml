@@ -21,7 +21,7 @@
                 <MenuItem Header="Закрыть приложение" Name="CloseAppMi" Click="CloseAppMi_Click"/>
             </MenuItem>
             
-            <MenuItem Header="Библиотека">
+            <MenuItem Header="Библиотека" Name="LibraryMi" Visibility="Collapsed">
                 <MenuItem Header="Управление читателями"   Name="ManageCustomersMi" Click="ManageCustomersMi_Click"/>
                 <MenuItem Header="Просмотр каталога"       Name="CatalogMi"         Click="CatalogMi_Click"/>
                 <MenuItem Header="Управление абониментами" Name="CirculationMi"     Click="CirculationMi_Click"/>
@@ -33,6 +33,7 @@
         
         <!-- Фрейм (страницы) -->
 
-        
+        <Frame Name="MainFrame" Grid.Row="2"/>
+
     </Grid>
 </Window>
