@@ -31,10 +31,10 @@ namespace BookMaster_34.View.Windows
             //DialogResult возвращает результат работы диалогового окна
             DialogResult = true;
 
-            if (DialogResult == true)
-            {
-                
-            }
+            //if (LoginWindow.ShowDialog() = true)
+            //{
+
+            //}
         }
     }
 }
