@@ -5,10 +5,54 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BookMaster_34.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
-      Title="BrowseCatalogPage">
+      d:DesignHeight="1004" d:DesignWidth="1920"
+      Title="Просмотр книг">
 
     <Grid>
-        <TextBlock Text="страница для просмотра книг" FontSize="40"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!--Панель поиска-->
+
+        <Grid Margin="20">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="10"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="1*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto"/>
+                <ColumnDefinition Width="10"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+
+            <Image Grid.ColumnSpan="3" Source="/Resources/logo.png"/>
+
+
+            <TextBlock Grid.Row="2" Text="Название:"/>
+            <TextBox Grid.Row="2" Grid.Column="2"/>
+
+            <TextBlock Grid.Row="4" Text="Авторы:"/>
+            <TextBox Grid.Row="4" Grid.Column="2"/>
+
+            <TextBlock Grid.Row="6" Text="Жанры:"/>
+            <TextBox Grid.Row="6" Grid.Column="2"/>
+
+            <Button Name="SearchBtn" Grid.Row="8" Grid.Column="2"
+                    Content="Поиск" Click="SearchBtn_Click"/>
+
+
+        </Grid>
+
     </Grid>
 </Page>
