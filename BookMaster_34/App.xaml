@@ -4,6 +4,19 @@
              xmlns:local="clr-namespace:BookMaster_34"
              StartupUri="\View\Windows\MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <!--Цвета-->
+            <SolidColorBrush x:Key="LightGreen1" Color="#8fa43b"/>
+            <SolidColorBrush x:Key="LightGreen2" Color="#718136"/>
+            <SolidColorBrush x:Key="DarkGreen" Color="#50673b"/>
+            <SolidColorBrush x:Key="Gray" Color="#bfbfbf"/>
+
+            <!--Подключение словарей ресурсов-->
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/ButtonStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/TextBlockStyle.xaml"/>
+                <ResourceDictionary Source="/Styles/TextBoxStyle.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
