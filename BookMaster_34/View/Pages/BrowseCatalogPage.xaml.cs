@@ -29,5 +29,10 @@ namespace BookMaster_34.View.Pages
         {
 
         }
+
+        private void PriviousPageBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
