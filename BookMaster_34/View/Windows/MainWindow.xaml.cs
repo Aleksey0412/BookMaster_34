@@ -21,6 +21,8 @@ namespace BookMaster_34
         public MainWindow()
         {
             InitializeComponent();
+
+            MainFrame.Navigate(new BrowseCatalogPage());
         }
 
         private void LogoutMi_Click(object sender, RoutedEventArgs e)
