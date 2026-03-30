@@ -53,12 +53,14 @@
 
         </Grid>
 
-        <Grid Grid.Column="2" Margin="0 20 20 20">
+        <Grid Grid.Column="2">
             <Grid.RowDefinitions>
-                <RowDefinition Height="1*"/>
-                <RowDefinition Height="15"/>
-                <RowDefinition Height="1*"/>
+                <RowDefinition Height="1*" />
+                <RowDefinition Height="15" />
+                <RowDefinition Height="1*" />
             </Grid.RowDefinitions>
+
+           
             
             <!--Результаты поиска-->
             <Grid>
@@ -68,51 +70,91 @@
                     <RowDefinition Height="50"/>
                 </Grid.RowDefinitions>
 
-                <ListView Name="BookAutorsLv">
+                <ListView Name="BookAuthorsLv" SelectionChanged="BookAutorsLv_SelectionChanged">
+                    
                     <!-- Создаем заголовки таблицы-->
                     <ListView.View>
                         <GridView>
-                            <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Book.Title}"/>
+                            <GridViewColumn Header="Название" DisplayMemberBinding="{Binding Title}"/>
                             
-                            <GridViewColumn Header="Авторы" DisplayMemberBinding="{Binding Author.Name}"/>
+                            <GridViewColumn Header="Авторы" DisplayMemberBinding="{Binding Authors}"/>
                         </GridView>
                     </ListView.View>
                 </ListView>
 
-                <Grid Grid.Row="2" >
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="100"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="50"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="auto"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="1*"/>
-                        <ColumnDefinition Width="10"/>
-                        <ColumnDefinition Width="auto"/>
-                    </Grid.ColumnDefinitions>
-
-                    <TextBlock Text=" Страница"/>
-
-                    <Button Name="PriviousPageBtn" Content="&lt;" Grid.Column="2" Click="PriviousPageBtn_Click"/>
-
-                    <TextBox Name="CurrentPageTb" Grid.Column="4"/>
-
-                    <Button Name="NextPageBtn" Grid.Column="6" Content="&gt;"/>
-
-                    <TextBlock Name="TotalPagesTbl" Grid.Column="8" Text=" из 4" />
-
-                    <TextBlock Name="TotalBooksTbl" Grid.Column="12" Text="153 книги найдено"/>
-                </Grid>
+                
             </Grid>
             
             <!-- Изменение размеров гридов-->
             
             <!-- Информация о выбранной книге-->
+            <Grid Grid.Row="2" Name="BookDetailsGrid">
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="1*"/>
+                    <ColumnDefinition Width="10"/>
+                    <ColumnDefinition Width="300"/>
+                </Grid.ColumnDefinitions>
+                
+                <!--Текст Информации-->
+                <Grid >
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="10"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Text="{Binding Title}" Grid.Row="0" FontSize="30"/>
+                    <TextBlock Text="{Binding Subtitle}" Grid.Row="2"/>
+                    
+                   <!--Реализация гиперссылки-->
+                    <TextBlock  Grid.Row="4">
+                        <Hyperlink Name="BookAutorsDetailisHl" Click="BookAutorsDetailisHl_Click">
+                            <TextBlock Text="{Binding Authors}"/>
+                        </Hyperlink>
+                    </TextBlock>
+
+                    <TextBlock Text="{Binding FirstPublicDate, StringFormat ={}Год первой публикации:{0:yyyy}}" Grid.Row="6" />
+                    <TextBlock Text="Описание" Grid.Row="8" FontWeight="SemiBold"/>
+                    <TextBlock Text="{Binding Description}" Grid.Row="10"/>
+                    <TextBlock Text="Жанр" Grid.Row="12" FontWeight="SemiBold"/>
+                    <TextBlock Text="{Binding Subjects}" Grid.Row="14"/>
+                </Grid>
+                
+                <!-- Слайдер изображений-->
+                <Grid Grid.Column="2">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="1*"/>
+                        <RowDefinition Height="10"/>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="10"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Image  Grid.ColumnSpan="3" Stretch="Fill" Source="/Resources/booklogo.jpg"/>
+
+                    <Button Grid.Row="2" Content="&lt;"/>
+                    
+                    <Button Grid.Row="2" Grid.Column="2" Content="&gt;"/>
+                    
+                </Grid>
+                
+            </Grid>
             
         </Grid>
         

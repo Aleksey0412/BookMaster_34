@@ -1,4 +1,6 @@
-﻿using System;
+﻿using BookMaster_34.AppData;
+using BookMaster_34.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection.PortableExecutable;
@@ -28,13 +30,48 @@ namespace BookMaster_34.View.Windows
 
         private void LoginBtn_Click(object sender, RoutedEventArgs e)
         {
-            //DialogResult возвращает результат работы диалогового окна
-            DialogResult = true;
+            if (Validate())
+            {
+                Administrator? administrator = App.GetContext().Administrators.FirstOrDefault(administrator => administrator.Username == LoginTb.Text && administrator.Password == PasswordPb.Password);
 
-            //if (LoginWindow.ShowDialog() = true)
-            //{
+                if (administrator != null )
+                {
+                    FeedbackServise.Information("Успешная авторизация");
 
-            //}
+
+                    //DialogResult возвращает результат работы диалогового окна
+                    DialogResult = true; 
+                }
+                else
+                {
+                    FeedbackServise.Error("Пользователь не найден");
+                }
+            }
+          
+        }
+
+        private void Calcel_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+       private bool Validate()
+        {
+            if (string.IsNullOrWhiteSpace(LoginTb.Text))
+            {
+                FeedbackServise.Warning("Введите сообщение");
+                LoginTb.Focus();
+                return false;
+            }
+
+            if (string.IsNullOrWhiteSpace(LoginTb.Text))
+            {
+                FeedbackServise.Warning("Введите пароль");
+                PasswordPb.Focus();
+                return false;
+            }
+
+            return true;
         }
     }
 }

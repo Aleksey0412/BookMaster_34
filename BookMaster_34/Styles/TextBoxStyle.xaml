@@ -7,4 +7,12 @@
         <Setter Property="Padding" Value="5 0"/>
         <Setter Property="BorderBrush" Value="Black"/>
     </Style>
+
+    <Style TargetType="PasswordBox">
+        <Setter Property="FontSize" Value="20"/>
+        <Setter Property="FontFamily" Value="Tahoma"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Padding" Value="5 0"/>
+        <Setter Property="BorderBrush" Value="Black"/>
+    </Style>
 </ResourceDictionary>

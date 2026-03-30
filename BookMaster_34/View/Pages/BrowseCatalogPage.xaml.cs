@@ -1,4 +1,5 @@
 ﻿using BookMaster_34.Models;
+using BookMaster_34.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,14 +24,15 @@ namespace BookMaster_34.View.Pages
     {
 
         //Создадим список для вытягивания данных из таблиц
-        private readonly List<BookAuthor> _bookAuthors;
+        private readonly List<Book> _bookAuthors;
 
+        private Book _selectedBook;
         public BrowseCatalogPage()
         {
             InitializeComponent();
 
             //Заполняем локальный список
-            _bookAuthors = App.GetContext().BookAuthors.ToList();
+            _bookAuthors = App.GetContext().Books.ToList();
 
             LoadData();
         }
@@ -47,7 +49,35 @@ namespace BookMaster_34.View.Pages
 
         private void LoadData()
         {
-            BookAutorsLv.ItemsSource = _bookAuthors;
+            BookAuthorsLv.ItemsSource = _bookAuthors;
+        }
+
+        private void PreviousPageBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void NextPageBtn_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void BookAutorsLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            _selectedBook = (Book)BookAuthorsLv.SelectedItem;
+
+            BookDetailsGrid.DataContext = _selectedBook;
+        }
+
+        private void BookAutorsDetailisHl_Click(object sender, RoutedEventArgs e)
+        {
+            if (_selectedBook != null)
+            {
+                BookAuthorsDetailsWindow bookAuthorsDetailsWindow =
+                    new BookAuthorsDetailsWindow(_selectedBook.BookAuthors);
+                
+                bookAuthorsDetailsWindow.ShowDialog();
+            }
         }
     }
 }
