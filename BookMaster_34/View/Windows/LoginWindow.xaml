@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:BookMaster_34.View.Windows"
         mc:Ignorable="d"
        Title="LoginWindow" SizeToContent="Height" Width="500" 
-        ResizeMode="NoResize" Loaded="Window_Loaded">
+        ResizeMode="NoResize" Loaded="Window_Loaded" Background="{DynamicResource Gray}">
         
     
     <Grid VerticalAlignment="Center"

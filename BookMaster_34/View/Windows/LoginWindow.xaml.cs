@@ -73,5 +73,17 @@ namespace BookMaster_34.View.Windows
 
             return true;
         }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            if (CredentialsService.AutoLogin && !string.IsNullOrWhiteSpace(CredentialsService.SavedLogin))
+            {
+                LoginTb.Text = CredentialsService.SavedLogin;
+                PasswordPb.Password = CredentialsService.SavedPassword;
+                RememberMeCb.IsChecked = CredentialsService.AutoLogin;
+            }
+        }
+
+
     }
 }

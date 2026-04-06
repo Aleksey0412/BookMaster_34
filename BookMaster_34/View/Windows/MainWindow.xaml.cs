@@ -42,7 +42,8 @@ namespace BookMaster_34
 
             if (loginWindow.ShowDialog() == true)
             {
-                LibraryMi.Visibility = Visibility.Collapsed;
+                LibraryMi.Visibility = Visibility.Visible;
+              
                 LogoutMi.Visibility = Visibility.Visible;
                 LoginMi.Visibility = Visibility.Collapsed;
             }
