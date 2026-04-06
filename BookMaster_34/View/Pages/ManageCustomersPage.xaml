@@ -5,10 +5,76 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:BookMaster_34.View.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="1004" d:DesignWidth="1920"
       Title="ManageCustomersPage">
 
     <Grid>
-        <TextBlock Text="страница для управления клиентами" FontSize="40"/>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="400"/>
+            <ColumnDefinition Width="20"/>
+            <ColumnDefinition Width="1*"/>
+        </Grid.ColumnDefinitions>
+
+        <!-- Панель поиска -->
+        <Border Background="{DynamicResource Gray}" Margin="0 20 0 20">
+            <Grid Margin="20">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="10"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="80"/>
+                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+
+                <TextBlock Grid.Row="2" Text="ID клиента:" />
+                <TextBox x:Name="CustomerIdTb" Grid.Row="3" />
+
+                <TextBlock Grid.Row="5" Text="Имя:" />
+                <TextBox x:Name="CustomerNameTb" Grid.Row="6" />
+
+                <Button x:Name="SearchBtn1" Grid.Row="7" Content="Поиск" Click="SearchBtn1_Click" />
+
+                <Grid Grid.Row="9">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*"/>
+                        <ColumnDefinition Width="1*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <Button x:Name="AddBtn" Content="Добавить" Click="AddBtn_Click" />
+                    <Button x:Name="EditBtn" Content="Редактировать" Grid.Column="1" Click="EditBtn_Click" />
+                </Grid>
+            </Grid>
+        </Border>
+
+
+        <Grid Grid.Column="2" Margin="0 20 20 20">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="1*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <!-- Список клиентов -->
+            <ListView x:Name="CustomersLv"
+                   SelectionChanged="CustomersLv_SelectionChanged">
+
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="ID" Width="Auto" DisplayMemberBinding="{Binding Id}"/>
+                        <GridViewColumn Header="ФИО" Width="Auto" DisplayMemberBinding="{Binding Name}"/>
+                        <GridViewColumn Header="Телефон" Width="Auto" DisplayMemberBinding="{Binding Phone}"/>
+                        <GridViewColumn Header="Email" Width="Auto" DisplayMemberBinding="{Binding Email}"/>
+                        <GridViewColumn Header="Город" Width="Auto" DisplayMemberBinding="{Binding City.Name}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+
+
+        </Grid>
     </Grid>
 </Page>
