@@ -107,9 +107,9 @@
 
                     <Button Name="PreviousPageBtn" Grid.Column="2" Content="&lt;" Click="PreviousPageBtn_Click"/>
 
-                    <TextBox Name="CurrentPageTb" Grid.Column="4"/>
+                    <TextBox Name="CurrentPageTb" TextChanged="CurrentPageTb_TextChanged" Grid.Column="4"/>
 
-                    <Button Name="NextPageBtn" Grid.Column="6" Content="&gt;"/>
+                    <Button Name="NextPageBtn" Grid.Column="6" Click="NextPageBtn_Click" Content="&gt;"/>
 
                     <TextBlock Name="TotalPagesTbl" Grid.Column="8" Text="из 4"/>
 

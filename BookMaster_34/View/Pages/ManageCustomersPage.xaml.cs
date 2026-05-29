@@ -1,4 +1,5 @@
 ﻿using BookMaster_34.Models;
+using BookMaster_34.View.Windows;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -43,16 +44,31 @@ namespace BookMaster_34.View.Pages
 
         }
 
-        
+
 
         private void AddBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            var window = new AddEditCustomerWindow(); // customer = null → режим добавления
+            if (window.ShowDialog() == true)
+            {
+                CustomersLv.ItemsSource = App.GetContext().Customers.ToList();
+            }
         }
 
         private void EditBtn_Click(object sender, RoutedEventArgs e)
         {
+            var selected = CustomersLv.SelectedItem as Customer;
+            if (selected == null)
+            {
+                MessageBox.Show("Выберите клиента для редактирования.", "Ошибка", MessageBoxButton.OK, MessageBoxImage.Error);
+                return;
+            }
 
+            var window = new AddEditCustomerWindow(selected); // режим редактирования
+            if (window.ShowDialog() == true)
+            {
+                CustomersLv.ItemsSource = App.GetContext().Customers.ToList();
+            }
         }
 
         private void CustomersLv_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -66,8 +82,8 @@ namespace BookMaster_34.View.Pages
             List<Customer> source = App.GetContext().Customers.ToList();
 
             // Получаем введённые значения
-            string idFilter = CustomerIdTb.Text?.Trim();
-            string nameFilter = CustomerNameTb.Text?.Trim();
+            string idFilter = CustomerIdTb.Text;
+            string nameFilter = CustomerNameTb.Text;
 
             bool hasIdFilter = !string.IsNullOrEmpty(idFilter);
             bool hasNameFilter = !string.IsNullOrEmpty(nameFilter);

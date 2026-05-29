@@ -37,7 +37,7 @@
                 <TextBlock Grid.Row="5" Text="Имя:" />
                 <TextBox x:Name="CustomerNameTb" Grid.Row="6" />
 
-                <Button x:Name="SearchBtn1" Grid.Row="7" Content="Поиск" Click="SearchBtn1_Click" />
+                <Button x:Name="SearchBtn1" Grid.Row="7" Content="Поиск" Click="SearchBtn1_Click" Margin="0 20 0 0"/>
 
                 <Grid Grid.Row="9">
                     <Grid.ColumnDefinitions>
@@ -45,8 +45,8 @@
                         <ColumnDefinition Width="1*"/>
                     </Grid.ColumnDefinitions>
 
-                    <Button x:Name="AddBtn" Content="Добавить" Click="AddBtn_Click" />
-                    <Button x:Name="EditBtn" Content="Редактировать" Grid.Column="1" Click="EditBtn_Click" />
+                    <Button x:Name="AddBtn" Content="Добавить" Click="AddBtn_Click"  Margin="0 0 10 0"/>
+                    <Button x:Name="EditBtn" Content="Редактировать" Grid.Column="1" Click="EditBtn_Click" Margin="10 0 0 0" />
                 </Grid>
             </Grid>
         </Border>
